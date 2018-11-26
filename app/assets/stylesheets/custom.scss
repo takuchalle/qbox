@@ -1,0 +1,25 @@
+$font-stack: Noto Sans Japanese, Helvetica Neue,Hiragino Kaku Gothic,sans-serif;
+$header-color: #FA514B;
+$back-color: rgba(245,240,235,.5);
+$font-color: #454545;
+$link-color: #4d4d4d;
+$tag-color: #2196f3;
+
+html {
+	margin: 0;
+	font-family: $font-stack;
+}
+
+body {
+	margin: 0;
+	background-color: $back-color;
+}
+
+header {
+	background-color: $header-color;
+}
+
+.container {
+	margin: 0 auto 0 auto;
+	max-width: 800px;
+}

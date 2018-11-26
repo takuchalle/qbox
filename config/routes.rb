@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root 'questions#new'
 
-  get 'questions/new'
-  get 'questions/show'
-  get 'questions/index'
+  resources :questions, only: %i[new show index create delete]
 end
