@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 $font-stack: Noto Sans Japanese, Helvetica Neue,Hiragino Kaku Gothic,sans-serif;
-$header-color: #FA514B;
+$header-color: white;
 $back-color: rgba(245,240,235,.5);
 $font-color: #454545;
 $link-color: #4d4d4d;
@@ -20,6 +20,10 @@ body {
 
 header {
 	background-color: $header-color;
+
+	.header-inner {
+		display: flex;
+	}
 }
 
 textarea {
