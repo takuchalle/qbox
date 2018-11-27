@@ -8,16 +8,15 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to question_url(token: @question.token)
     else
       render 'new'
     end
   end
 
   def show
-    @question = Question.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    render_404
+    @question = Question.find_by(token: params[:token])
+    render_404 if @question.nil?
   end
 
   def index
