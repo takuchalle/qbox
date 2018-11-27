@@ -16,6 +16,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render_404
   end
 
   def index
