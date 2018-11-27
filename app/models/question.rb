@@ -3,6 +3,8 @@
 require 'securerandom'
 
 class Question < ApplicationRecord
+  validates :content, presence: true, length: { maximum: 140 }
+
   before_create :generate_token
 
   private
