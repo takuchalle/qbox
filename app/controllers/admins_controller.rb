@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
   private
 
   def only_one_admin
-    redirect_to root_path if admin_exist?
+    redirect_to admin_login_path if admin_exist?
   end
 
   def admin_param

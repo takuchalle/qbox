@@ -1,2 +1,10 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>管理者ログイン</h1>
+
+<%= form_for(:session, url:admin_login_path) do |f| %>
+
+<%= f.label 'パスワード' %>
+<%= f.text_field :password, class: 'form-control' %>
+
+<%= f.submit 'ログイン', class: 'btn btn-primary' %>
+
+<% end %>
