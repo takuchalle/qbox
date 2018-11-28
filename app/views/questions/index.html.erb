@@ -1,5 +1,7 @@
-受け取った質問
+<h1>受け取った質問</h1>
 
 <%= render @questions %>
+
+<h2><%= "#{admin_user.name}さんに" unless admin_user.nil? %>質問してみよう</h2>
 
 <%= render 'content_form' %>

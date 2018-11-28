@@ -1,3 +1,5 @@
-<h1>質問してみよう</h1>
+<h1><%= "#{admin_user.name}さんに" unless admin_user.nil? %>質問してみよう</h1>
 
 <%= render 'content_form' %>
+
+<%= "#{admin_user.name}さんに" unless admin_user.nil? %>回答した質問は<%= link_to 'こちら', questions_path %>
