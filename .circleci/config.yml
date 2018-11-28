@@ -38,4 +38,4 @@ jobs:
       - run:
           name: run tests
           command: |
-            bundle exec test
+            bundle exec rails test
