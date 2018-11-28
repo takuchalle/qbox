@@ -1,11 +1,18 @@
-<h1>管理者登録</h1>
+<div class="admin_register">
+  <h1>管理者登録</h1>
 
-<%= form_for(:admin, url:admin_register_path) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :password %>
-<%= f.text_field :password %>
-<%= f.label :password_confirmation %>
-<%= f.text_field :password_confirmation %>
-<%= f.submit "登録", class: "btn btn-primary" %>
-<% end %>
+  <%= form_for(:admin, url:admin_register_path) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit '登録', class: 'btn btn-primary' %>
+
+  <% end %>
+</div>
