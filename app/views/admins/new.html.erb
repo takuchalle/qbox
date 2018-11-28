@@ -1,2 +1,11 @@
-<h1>Admins#new</h1>
-<p>Find me in app/views/admins/new.html.erb</p>
+<h1>管理者登録</h1>
+
+<%= form_for(:admin, url:admin_register_path) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :password %>
+<%= f.text_field :password %>
+<%= f.label :password_confirmation %>
+<%= f.text_field :password_confirmation %>
+<%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>
