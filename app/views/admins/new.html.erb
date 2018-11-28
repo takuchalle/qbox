@@ -3,13 +3,13 @@
 
   <%= form_for(:admin, url:admin_register_path) do |f| %>
 
-  <%= f.label :name %>
+  <%= f.label '名前' %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :password %>
+  <%= f.label 'パスワード' %>
   <%= f.text_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label 'パスワード確認' %>
   <%= f.text_field :password_confirmation, class: 'form-control' %>
 
   <%= f.submit '登録', class: 'btn btn-primary' %>
