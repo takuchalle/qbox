@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin < ApplicationRecord
   validates :name, presence: true, length: { maximum: 18 }
 

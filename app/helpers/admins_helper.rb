@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AdminsHelper
   def admin_user
     Admin.first

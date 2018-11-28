@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   include AdminsHelper
 
   before_action :need_register?, only: %i[new create destroy]
 
-  def new
-  end
+  def new; end
 
   def create
     @admin = Admin.first
-    if @admin && @admin.authenticate(params[:session][:password])
+    if @admin&.authenticate(params[:session][:password])
       login @admin
       redirect_to root_path
     else
