@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   def create
     @admin = Admin.first
     if @admin && @admin.authenticate(params[:session][:password])
+      login @admin
       redirect_to root_path
     else
       render 'new'
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    logout
   end
 
   private
