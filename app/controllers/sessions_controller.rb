@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def create
     @admin = Admin.first
     if @admin&.authenticate(params[:session][:password])
-      login @admin
+      log_in @admin
       redirect_to root_path
     else
       render 'new'
