@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'admin/login', to: 'sessions#new'
   post 'admin/login', to: 'sessions#create'
   delete 'admin/logout', to: 'sessions#destroy'
-  resources :questions, only: %i[new show index create delete], param: :token
+  resources :questions, param: :token
 end

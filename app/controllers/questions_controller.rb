@@ -25,6 +25,10 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def edit
+    @question = Question.find_by(token: params[:token])
+  end
+
   private
 
   def question_params
