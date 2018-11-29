@@ -4,9 +4,11 @@
 	  <div class="logo">
 		<%= link_to 'Q Box', root_path %>
 	  </div>
+	  <% if logged_in? %>
 	  <div>
-		<%= link_to '回答リスト', questions_path %>
+		<%= link_to 'ログアウト', admin_logout_path, method: :delete %>
 	  </div>
+	  <% end %>
 	</div>
   </div>
 </header>
