@@ -7,6 +7,7 @@ module SessionsHelper
 
   def log_out
     session.delete(:admin_id)
+    @logged_in_user = nil
   end
 
   def logged_in_user
