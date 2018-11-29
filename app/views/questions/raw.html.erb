@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Qbox</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="q-raw">
+	<div class="q-frame">
+	  <div class="q-body">
+		<%= @question.content %>
+	  </div>
+	  <div class="q-icon">
+		Q Box
+	  </div>
+	</div>
+  </body>
+</html>

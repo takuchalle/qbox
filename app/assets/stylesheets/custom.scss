@@ -4,6 +4,7 @@
 $font-stack: Noto Sans Japanese, Helvetica Neue,Hiragino Kaku Gothic,sans-serif;
 $header-color: white;
 $back-color: rgba(245,240,235,.5);
+$frame-color: #FA514B;
 $font-color: #454545;
 $link-color: #4d4d4d;
 $tag-color: #2196f3;
@@ -35,4 +36,29 @@ textarea {
 .container {
 	margin: 0 auto 0 auto;
 	max-width: 800px;
+}
+
+.q-raw {
+	width: 600px;
+
+	.q-frame {
+		background-color: $frame-color;
+		padding: 15px 15px 5px 15px;
+
+		.q-body {
+			background-color: white;
+			padding: 15px;
+			border-radius: 5px;
+		}
+
+		.q-icon {
+			font-size: 1.4em;
+			padding: 5px 0px 0px 0px;
+			margin: 0px;
+			color: white;
+			border-radius: 5px;
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
 }

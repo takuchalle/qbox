@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by(token: params[:token])
+    render_raw unless params[:raw].nil?
     render_404 if @question.nil?
   end
 
@@ -28,5 +29,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:content)
+  end
+
+  def render_raw
+    render template: 'questions/raw', status: 200, layout: false, content_type: 'text/html'
   end
 end
