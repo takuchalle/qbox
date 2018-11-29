@@ -12,6 +12,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_param)
     if @admin.save
+      log_in @admin
       redirect_to root_path
     else
       render 'new'
