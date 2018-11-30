@@ -76,7 +76,7 @@ class QuestionsController < ApplicationController
   end
 
   def tweet_url
-    URI.encode("http://twitter.com/intent/tweet?original_referer=#{question_url(token: @question.token)}&url=#{question_url(token: @question.token)}&text=#{@question.content}")
+    URI.encode("http://twitter.com/intent/tweet?original_referer=#{question_url(token: @question.token)}&url=#{question_url(token: @question.token)}&text=#{@question.replay}")
   end
 
   def set_meta_info(q)
