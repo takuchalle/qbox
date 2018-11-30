@@ -40,7 +40,19 @@
 .question-image {
 	img {
 		max-width: 100%;
-		padding: 16px;
-		border-radius: 20px;
+		padding: 16px 0;
+	}
+}
+
+.anser {
+	@include whitebox();
+
+	.ans-title {
+		font-size: 0.8em;
+		color: gray;
+	}
+
+	.ans-body {
+		padding: 4px;
 	}
 }

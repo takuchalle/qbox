@@ -6,4 +6,13 @@
 <div class="question-image">
   <%= image_tag("#{@question.image}") %>
 </div>
+
+<div class="anser">
+  <div class="ans-title">
+	回答
+  </div>
+  <div class="ans-body">
+	<%= @question.replay %>
+  </div>
+</div>
 <% end %>
