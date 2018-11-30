@@ -2,6 +2,7 @@
 
 class QuestionsController < ApplicationController
   include QuestionsHelper
+  include AdminsHelper
 
   before_action :only_admin, only: %i[update edit destroy]
 
@@ -81,13 +82,16 @@ class QuestionsController < ApplicationController
   def set_meta_info(q)
     set_meta_tags description: q.content
     set_meta_tags og: {
+                    title: "Q box",
+                    site_name: "#{admin_user.name} Q box",
                     description: q.content,
                     url: question_url(token: params[:token]),
                     image: q.image,
                     type: "website"
                   }
     set_meta_tags twitter: {
-                    card: "summary_large_image"
+                    card: "summary_large_image",
+                    site: "@takuchalle"
                   }
   end
 end
