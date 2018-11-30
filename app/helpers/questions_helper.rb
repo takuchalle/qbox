@@ -38,9 +38,12 @@ module QuestionsHelper
 		  padding: 25px 25px 10px 25px;
 	  }
 	  .q-frame .q-body {
+          vertical-align: middle;
+          text-align: center;
+          min-height: 250px;
 		  font-size: 2.6em;
 		  background-color: white;
-		  padding: 15px;
+		  padding: 1.3em;
 		  border-radius: 5px;
 	  }
 	  .q-frame .q-icon {
