@@ -13,6 +13,8 @@ module Qbox
 
     config.paths.add "#{Rails.root}/lib", eager_load: true
 
+    config.enable_dependency_loading = true
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
