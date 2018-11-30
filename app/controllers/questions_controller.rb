@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :only_admin, only: %i[update edit]
+  before_action :only_admin, only: %i[update edit destroy]
 
   def new
     @question = Question.new
@@ -29,6 +29,11 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find_by(token: params[:token])
+  end
+
+  def destroy
+    Question.find_by(token: params[:token])&.destroy
+    redirect_to questions_url
   end
 
   def update
