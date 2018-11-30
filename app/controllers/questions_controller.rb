@@ -24,7 +24,11 @@ class QuestionsController < ApplicationController
 
   def index
     @question  = Question.new
-    @questions = Question.all
+    if logged_in?
+      @questions = Question.all
+    else
+      @questions = Question.where.not(replay: nil)
+    end
   end
 
   def edit
