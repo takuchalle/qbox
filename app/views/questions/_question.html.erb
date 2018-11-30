@@ -7,7 +7,7 @@
 	  <%= question.content %>
 	</div>
 	<% unless question.replay.nil? %>
-	<%= question.replay %>
+	<%= link_to '回答を見る', question_path(token: question.token) %>
 	<% end %>
 	<% if logged_in? %>
 	<div class="edit">

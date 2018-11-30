@@ -1,7 +1,14 @@
-<h1>受け取った質問</h1>
+<h1>回答した質問</h1>
 
-<%= render @questions %>
+<div class="question-list">
+  <% if @questions.any? %>
+  <%= render @questions %>
+  <% else %>
+  まだ回答がありません。
+  <% end %>
+</div>
+<div class="">
+  <h2><%= "#{admin_user.name}さんに" unless admin_user.nil? %>質問してみよう</h2>
 
-<h2><%= "#{admin_user.name}さんに" unless admin_user.nil? %>質問してみよう</h2>
-
-<%= render 'content_form' %>
+  <%= render 'content_form' %>
+</div>
