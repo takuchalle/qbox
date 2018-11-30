@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  before_action :only_admin, only: %i[update edit]
+
   def new
     @question = Question.new
   end
@@ -29,10 +31,23 @@ class QuestionsController < ApplicationController
     @question = Question.find_by(token: params[:token])
   end
 
+  def update
+    @question = Question.find_by(token: params[:token])
+    if @question.update_attributes(question_params)
+      redirect_to question_url(token: @question.token)
+    else
+      render 'edit'
+    end
+  end
+
   private
 
+  def only_admin
+    redirect_to question_url(token: params[:token]) unless logged_in?
+  end
+
   def question_params
-    params.require(:question).permit(:content)
+    params.require(:question).permit(:content, :replay)
   end
 
   def render_raw
