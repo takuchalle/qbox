@@ -23,6 +23,8 @@ class QuestionsController < ApplicationController
     render_raw unless params[:raw].nil?
     render_404 if @question.nil?
     @tweet_url = tweet_url
+
+    set_meta_info @question
   end
 
   def index
@@ -74,5 +76,18 @@ class QuestionsController < ApplicationController
 
   def tweet_url
     URI.encode("http://twitter.com/intent/tweet?original_referer=#{question_url(token: @question.token)}&url=#{question_url(token: @question.token)}&text=#{@question.content}")
+  end
+
+  def set_meta_info(q)
+    set_meta_tags description: q.content
+    set_meta_tags og: {
+                    description: q.content,
+                    url: question_url(token: params[:token]),
+                    image: q.image,
+                    type: "website"
+                  }
+    set_meta_tags twitter: {
+                    card: "summary_large_image"
+                  }
   end
 end
