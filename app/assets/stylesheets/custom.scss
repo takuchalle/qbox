@@ -7,7 +7,6 @@ $back-color: rgba(245,240,235,.5);
 $frame-color: #FA514B;
 $font-color: #454545;
 $link-color: #4d4d4d;
-$tag-color: #2196f3;
 
 html {
 	margin: 0;
@@ -24,7 +23,23 @@ header {
 
 	.header-inner {
 		display: flex;
+		justify-content: center;
+
+		.logo {
+			font-size: 2em;
+		}
+
+		a {
+			color: black;
+		}
 	}
+}
+
+footer {
+	height: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-top: 2px solid gray;
 }
 
 textarea {

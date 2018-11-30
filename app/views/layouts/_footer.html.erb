@@ -1,5 +1,10 @@
 <footer>
   <div class="container">
-	
+	<%= link_to 'トップページ', root_path %>
+	<% if logged_in? %>
+	<div>
+	  <%= link_to 'ログアウト', admin_logout_path, method: :delete %>
+	</div>
+	<% end %>
   </div>
 </footer>
