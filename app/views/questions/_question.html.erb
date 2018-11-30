@@ -1,14 +1,22 @@
 <li class="question-li">
   <div class="question">
 	<div class="date">
-	  <%= question.created_at %>
+	  <%= question.created_at.strftime('%Y/%m/%d') %>
 	</div>
 	<div class="content">
 	  <%= question.content %>
 	</div>
+	<% unless question.replay.nil? %>
+	<%= question.replay %>
+	<% end %>
 	<% if logged_in? %>
 	<div class="edit">
-	  <%= link_to '返信', edit_question_path(token: question.token) %>
+	  <div class="delete">
+		<%= link_to '削除', question_path(token: question.token), method: :delete %>
+	  </div>
+	  <div class="replay">
+		<%= link_to '返信', edit_question_path(token: question.token) %>
+	  </div>
 	</div>
 	<% end %>
   </div>

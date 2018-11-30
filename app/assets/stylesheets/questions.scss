@@ -17,4 +17,22 @@
 .question {
 	@include whitebox();
 	margin: 16px 0;
+
+	.date {
+		font-size: 0.8em;
+		color: gray;
+	}
+
+	.content {
+		padding: 4px;
+	}
+
+	.edit {
+		display: flex;
+		justify-content: flex-end;
+
+		a {
+			padding: 4px;
+		}
+	}
 }
