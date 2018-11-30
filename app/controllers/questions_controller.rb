@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
     @question = Question.find_by(token: params[:token])
     render_raw unless params[:raw].nil?
     render_404 if @question.nil?
+    @tweet_url = tweet_url
   end
 
   def index
@@ -69,5 +70,9 @@ class QuestionsController < ApplicationController
 
   def render_raw
     render template: 'questions/raw', status: 200, layout: false, content_type: 'text/html'
+  end
+
+  def tweet_url
+    URI.encode("http://twitter.com/intent/tweet?original_referer=#{question_url(token: @question.token)}&url=#{question_url(token: @question.token)}&text=#{@question.content}")
   end
 end
