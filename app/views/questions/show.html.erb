@@ -1,3 +1,9 @@
-
-
+<% if @question.image.nil? %>
+ご質問ありがとうございます！！
+回答されるまでしばらくお待ち下さい。
 <%= render @question %>
+<% else %>
+<div class="question-image">
+  <%= image_tag("#{@question.image}") %>
+</div>
+<% end %>
