@@ -68,27 +68,23 @@ footer {
 	border-bottom: 2px solid gray;
 }
 
-.q-raw {
-	width: 600px;
-
-	.q-frame {
-		background-color: $frame-color;
-		padding: 15px 15px 5px 15px;
-
-		.q-body {
-			background-color: white;
-			padding: 15px;
-			border-radius: 5px;
-		}
-
-		.q-icon {
-			font-size: 1.4em;
-			padding: 5px 0px 0px 0px;
-			margin: 0px;
-			color: white;
-			border-radius: 5px;
-			display: flex;
-			justify-content: flex-end;
-		}
+.q-frame {
+	width: 100%;
+	background-color: $frame-color;
+	padding: 25px 25px 10px 25px;
+	.q-body {
+		font-size: 3.8em;
+		background-color: white;
+		padding: 15px;
+		border-radius: 5px;
+	}
+	.q-icon {
+		font-size: 3.4em;
+		padding: 5px 0px 0px 0px;
+		margin: 0px;
+		color: white;
+		border-radius: 5px;
+		display: flex;
+		justify-content: flex-end;
 	}
 }
