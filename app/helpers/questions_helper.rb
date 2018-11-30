@@ -5,10 +5,8 @@ require 's3_bucket_client'
 
 module QuestionsHelper
   def create_image(q)
-    html = get_html(q.content)
-
     file = Tempfile.new(["#{q.token}", '.png'], 'tmp', :encoding => 'ascii-8bit')
-    file.write(IMGKit.new(question_url(token: q.token, raw: 1), quality: 20).to_png)
+    file.write(IMGKit.new(question_url(token: q.token, raw: 1), quality: 20, width: 800).to_png)
     file.flush
 
     client = S3BucketClient.new
