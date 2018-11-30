@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  include QuestionsHelper
+
   before_action :only_admin, only: %i[update edit destroy]
 
   def new
@@ -33,6 +35,11 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find_by(token: params[:token])
+
+    if @question.image.nil?
+      image = create_image(@question)
+      @question.update_attribute(:image, image)
+    end
   end
 
   def destroy
@@ -42,6 +49,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find_by(token: params[:token])
+
     if @question.update_attributes(question_params)
       redirect_to question_url(token: @question.token)
     else
