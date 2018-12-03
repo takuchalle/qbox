@@ -1,4 +1,6 @@
-<%= form_for(@question) do |f| %>
-<%= f.text_area :content, placeholder: "ask me anything...", class: "content-form" %>
-<%= f.submit "Ask", class: "btn btn-primary" %>
-<% end %>
+<div class="content-form">
+  <%= form_for(@question) do |f| %>
+  <%= f.text_area :content, placeholder: "ask me anything..." %>
+  <%= f.submit "Ask", class: "btn btn-primary" %>
+  <% end %>
+</div>

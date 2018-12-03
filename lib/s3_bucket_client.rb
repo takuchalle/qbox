@@ -16,6 +16,7 @@ class S3BucketClient
 
   def send(s3_path, file_path)
     o = @bucket.object("#{s3_path}/#{File.basename(file_path)}")
-    o.upload_file(file_path)
+    o.upload_file(file_path, acl: 'public-read')
+    o.public_url.to_s
   end
 end

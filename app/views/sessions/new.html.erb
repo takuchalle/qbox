@@ -3,7 +3,7 @@
 <%= form_for(:session, url:admin_login_path) do |f| %>
 
 <%= f.label 'パスワード' %>
-<%= f.text_field :password, class: 'form-control' %>
+<%= f.password_field :password, class: 'form-control' %>
 
 <%= f.submit 'ログイン', class: 'btn btn-primary' %>
 

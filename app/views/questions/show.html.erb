@@ -1,3 +1,19 @@
-
-
+<% if @question.image.nil? %>
+ご質問ありがとうございます！！
+回答されるまでしばらくお待ち下さい。
 <%= render @question %>
+<% else %>
+<div class="question-image">
+  <%= image_tag("#{@question.image}") %>
+</div>
+
+<div class="anser">
+  <div class="ans-title">
+	回答
+  </div>
+  <div class="ans-body">
+	<%= @question.replay %>
+  </div>
+</div>
+<%= link_to 'この回答をツイートする', @tweet_url %>
+<% end %>

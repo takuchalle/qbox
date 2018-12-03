@@ -1,1 +1,6 @@
 <%= render @question %>
+
+<%= form_for(@question, url: question_url(token: @question.token)) do |f| %>
+<%= f.text_area :replay, placeholder: "reolay...", class: "content-form" %>
+<%= f.submit "Replay", class: "btn btn-primary" %>
+<% end %>

@@ -7,7 +7,6 @@ $back-color: rgba(245,240,235,.5);
 $frame-color: #FA514B;
 $font-color: #454545;
 $link-color: #4d4d4d;
-$tag-color: #2196f3;
 
 html {
 	margin: 0;
@@ -24,13 +23,40 @@ header {
 
 	.header-inner {
 		display: flex;
+		justify-content: center;
+
+		.logo {
+			font-size: 2em;
+		}
+
+		a {
+			color: black;
+		}
 	}
 }
 
-textarea {
-	padding: 0.4em;
+footer {
+	height: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-top: 2px solid gray;
+}
+
+.content-form {
+	display: flex;
 	width: 100%;
-	height: 10em;
+
+	form {
+		width: 100%;
+	}
+	textarea {
+		width: 100%;
+		height: 10em;
+	}
+}
+
+.btn {
+	margin: 0.6em 0;
 }
 
 .container {
@@ -38,27 +64,27 @@ textarea {
 	max-width: 800px;
 }
 
-.q-raw {
-	width: 600px;
+.question-list {
+	border-bottom: 2px solid gray;
+}
 
-	.q-frame {
-		background-color: $frame-color;
-		padding: 15px 15px 5px 15px;
-
-		.q-body {
-			background-color: white;
-			padding: 15px;
-			border-radius: 5px;
-		}
-
-		.q-icon {
-			font-size: 1.4em;
-			padding: 5px 0px 0px 0px;
-			margin: 0px;
-			color: white;
-			border-radius: 5px;
-			display: flex;
-			justify-content: flex-end;
-		}
+.q-frame {
+	width: 100%;
+	background-color: $frame-color;
+	padding: 25px 25px 10px 25px;
+	.q-body {
+		font-size: 2.6em;
+		background-color: white;
+		padding: 15px;
+		border-radius: 5px;
+	}
+	.q-icon {
+		font-size: 2.2em;
+		padding: 5px 0px 0px 0px;
+		margin: 0px;
+		color: white;
+		border-radius: 5px;
+		display: flex;
+		justify-content: flex-end;
 	}
 }
