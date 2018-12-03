@@ -4,7 +4,7 @@
 
 自分だけの匿名質問サービス。
 
-[Peing](https://peing.net)や[Sarahah](https://www.sarahah.com/)のようにユーザ登録して使うのではなく、自分専用の質問を受けられるサービスです。a
+[Peing](https://peing.net)や[Sarahah](https://www.sarahah.com/)のようにユーザ登録して使うのではなく、自分専用の質問を受けられるサービスです。
 
 ## 特徴
 
@@ -42,6 +42,12 @@ $ heroku config:set S3_REGION=[あなたのリージョン名]
 $ heroku config:set S3_BUCKET=[あなたのバケット名]
 $ heroku config:set S3_ACCESS_KEY=[あなたのアクセスキー]
 $ heroku config:set S3_SECRET_KEY=[あなたのシークレットキー]
+```
+
+wkhtmltoimage を使うので buildpacks を追加します。
+
+```
+$ heroku buildpacks:add https://github.com/takuyaohashi/heroku-buildpack-wkhtmltopdf.git
 ```
 
 heroku にプッシュします。
