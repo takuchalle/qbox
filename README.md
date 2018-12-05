@@ -43,21 +43,29 @@ AWS のアクセスキーなど秘匿情報を登録します。
 $ bundle exec rails credentials:edit
 ```
 
-上記コマンドを打つとエディタが開きますので、次の情報を入力します。
+上記コマンドを打つとエディタが開きます。
 
-```
-aws:                                                                                                                                                                            access_key_id: [あなたの S3 のアクセスキー]
-   secret_access_key: [あなたの S3 のシークレットキー]
-   region: [あなたの S3 のリージョン]
-   bucket: [あなたの S3 のバケット名]
-```
-
-暗号化された`/config/credentials.yml.enc`が生成されます。
-
-エラーが出る場合、下記の順で試してください。
+エラーが出る場合、次の手順で試して、再度上記コマンドを打ってください。
 
  - /config/credentials.yml.enc を削除する
  - export EDITOR=vim を実行する
+
+エディタが開いたら次の情報を追記します。
+
+```
+aws:
+	access_key_id: [あなたの S3 のアクセスキー]
+	secret_access_key: [あなたの S3 のシークレットキー]
+	region: [あなたの S3 のリージョン]
+	bucket: [あなたの S3 のバケット名]
+```
+
+エディタを閉じると暗号化された`config/credentials.yml.enc`が生成されるので、コミットします。
+
+```
+$ git add config/credentials.yml.enc
+$ git commit -m ":muscle: Update S3 AccessKey"
+```
 
 heroku の環境変数にマスターキーの情報をセットします。
 
