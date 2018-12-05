@@ -1,18 +1,13 @@
 # coding: utf-8
 # frozen_string_literal: true
 
-require 's3_bucket_client'
-
 module QuestionsHelper
   def create_image(q)
-    file = Tempfile.new(["#{q.token}", '.png'], 'tmp', :encoding => 'ascii-8bit')
-    file.write(IMGKit.new(get_html(q.content), quality: 20, width: 800).to_png)
-    file.flush
-
-    client = S3BucketClient.new
-    url = client.send("image/#{q.id}", file.to_path)
-    file.unlink
-    url
+    Tempfile.create(["#{q.token}", '.png'], :encoding => 'ascii-8bit') do | file |
+      file.write(IMGKit.new(get_html(q.content), quality: 20, width: 800).to_png)
+      file.rewind
+      q.img.attach(io: file, filename: "q_#{q.id}.png", content_type: "image/png")
+    end
   end
 
   def get_html(body)

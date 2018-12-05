@@ -1,10 +1,10 @@
-<% if @question.image.nil? %>
+<% unless @question.img.attached? %>
 ご質問ありがとうございます！！
 回答されるまでしばらくお待ち下さい。
 <%= render @question %>
 <% else %>
 <div class="question-image">
-  <%= image_tag("#{@question.image}") %>
+  <%= image_tag( @question.img ) %>
 </div>
 
 <div class="anser">

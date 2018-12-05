@@ -39,11 +39,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find_by(token: params[:token])
-
-    if @question.image.nil?
-      image = create_image(@question)
-      @question.update_attribute(:image, image)
-    end
+    create_image(@question) unless @question.img.attached?
   end
 
   def destroy
@@ -86,12 +82,12 @@ class QuestionsController < ApplicationController
                     site_name: "#{admin_user.name} Q box",
                     description: q.content,
                     url: question_url(token: params[:token]),
-                    image: q.image,
                     type: "website"
                   }
     set_meta_tags twitter: {
                     card: "summary_large_image",
                     site: "@takuchalle"
                   }
+    set_meta_tags og: { image: url_for(q.img) } if q.img.attached?
   end
 end
