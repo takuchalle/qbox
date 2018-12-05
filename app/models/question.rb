@@ -7,6 +7,8 @@ class Question < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   before_create :generate_token
 
+  has_one_attached :img
+
   private
 
   def generate_token
