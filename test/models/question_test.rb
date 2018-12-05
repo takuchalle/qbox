@@ -23,4 +23,25 @@ class QuestionTest < ActiveSupport::TestCase
     @q.content = 'a' * 141
     assert_not @q.valid?
   end
+
+  test 'should be valid when replay is blank' do
+    @q.replay = ""
+    assert @q.valid?
+  end
+
+  test 'token should be nil before save' do
+    assert @q.valid?
+    assert @q.token.nil?
+  end
+
+  test 'token should not be nil after save' do
+    assert @q.valid?
+    @q.save
+    assert_not @q.token.nil?
+  end
+
+  test 'should have not attached' do
+    assert @q.valid?
+    assert_not @q.img.attached?
+  end
 end
