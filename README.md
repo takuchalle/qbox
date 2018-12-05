@@ -23,10 +23,12 @@
 
 ## デプロイ方法
 
-まずクローンします。
+まずクローンして、gem をインストールします。
 
 ```
 $ git clone https://github.com/takuyaohashi/qbox.git
+$ cd qbox
+$ bundle install
 ```
 
 heroku のプロジェクトを作成します。
@@ -35,13 +37,32 @@ heroku のプロジェクトを作成します。
 $ heroku create
 ```
 
-heroku の環境変数に AWS の S3 の情報をセットします。
+AWS のアクセスキーなど秘匿情報を登録します。
 
 ```
-$ heroku config:set S3_REGION=[あなたのリージョン名]
-$ heroku config:set S3_BUCKET=[あなたのバケット名]
-$ heroku config:set S3_ACCESS_KEY=[あなたのアクセスキー]
-$ heroku config:set S3_SECRET_KEY=[あなたのシークレットキー]
+$ bundle exec rails credentials:edit
+```
+
+上記コマンドを打つとエディタが開きますので、次の情報を入力します。
+
+```
+aws:                                                                                                                                                                            access_key_id: [あなたの S3 のアクセスキー]
+   secret_access_key: [あなたの S3 のシークレットキー]
+   region: [あなたの S3 のリージョン]
+   bucket: [あなたの S3 のバケット名]
+```
+
+暗号化された`/config/credentials.yml.enc`が生成されます。
+
+エラーが出る場合、下記の順で試してください。
+
+ - /config/credentials.yml.enc を削除する
+ - export EDITOR=vim を実行する
+
+heroku の環境変数にマスターキーの情報をセットします。
+
+```
+$ heroku config:set RAILS_MASTER_KEY=[config/master.keyに書かれている値]
 ```
 
 wkhtmltoimage を使うので buildpacks を追加します。
